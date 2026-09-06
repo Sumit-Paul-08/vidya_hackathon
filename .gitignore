@@ -1,0 +1,14 @@
+# Frontend
+node_modules/
+dist/
+
+# Backend
+backend/__pycache__/
+backend/routers/__pycache__/
+backend/venv/
+backend/.env
+backend/vidya.db
+
+# Editor/OS
+.DS_Store
+.vscode/
