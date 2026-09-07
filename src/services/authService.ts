@@ -1,8 +1,9 @@
+import { API_BASE_URL } from '../config';
 import { DEMO_STUDENT, DEMO_TEACHER } from './seedData';
 
 export async function teacherLogin(teacherId: string, password: string) {
   try {
-    const res = await fetch('/api/auth/teacher-login', {
+    const res = await fetch(`${API_BASE_URL}/api/auth/teacher-login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ teacherId, password }),
@@ -35,7 +36,7 @@ export async function getCurrentUser(token?: string) {
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
   try {
-    const res = await fetch('/api/me', { headers });
+    const res = await fetch(`${API_BASE_URL}/api/me`, { headers });
     if (!res.ok) {
       return token === 'demo-teacher-token' ? DEMO_TEACHER : DEMO_STUDENT;
     }
